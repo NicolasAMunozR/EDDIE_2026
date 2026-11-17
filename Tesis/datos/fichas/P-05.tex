@@ -1,0 +1,17 @@
+% Ficha extraída de datos/tabla_prototipos.tex (P-05)
+\begin{table}[H]
+\centering
+\caption{Quinto prototipo - Rastreo ocular.}
+\label{tab:prototipo-p05}
+\small
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+ID Prototipo & P-05 \\ \midrule
+Nombre & Rastreo ocular \\ \midrule
+Objetivos & Unificar GazePoint (Open Gaze API), TheEyeTribe y GazeCloud bajo IEyeTracker, con EyeTrackerMock como contingencia (DeviceFactory). \newline Portar la sesión de mirada: control del mouse por mirada, clic por permanencia, retícula y registro CSV. \newline Agregar la página Rastreo ocular (exportar/importar configuración). \\ \midrule
+Descripción & Los tres protocolos se prueban con servidores falsos que emiten el mismo formato que los dispositivos reales. La sesión de mirada es un consumidor de resultados del ciclo: recibe la muestra del eye tracker en el mismo ciclo en que se produce. \\ \midrule
+Requisitos Funcionales & RO1–RO7, RFS4 \\ \midrule
+Requisitos No Funcionales & RNF-01, RNF-02, RNF-05 \\ \bottomrule
+\end{tabularx}
+\fuente{Elaboración propia, 2026.}
+\end{table}

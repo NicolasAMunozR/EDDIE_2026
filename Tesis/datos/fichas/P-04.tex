@@ -1,0 +1,17 @@
+% Ficha extraída de datos/tabla_prototipos.tex (P-04)
+\begin{table}[H]
+\centering
+\caption{Cuarto prototipo - Interacción gestual.}
+\label{tab:prototipo-p04}
+\small
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+ID Prototipo & P-04 \\ \midrule
+Nombre & Interacción gestual \\ \midrule
+Objetivos & Integrar los plugins gestuales del C\# (Color Pen, Hand Skin, Mouse) bajo IGesturePlugin, compartiendo la cámara gestual declarada. \newline Portar la calibración sensor$\rightarrow$aplicación, el control del cursor (<<Recognition on>>), la máquina de estados del clic y la captura automática de la selección. \newline Agregar la página Gestos, con calibración asistida (<<Fijar inicio>> / <<Fijar fin>> desde la lectura del sensor). \\ \midrule
+Descripción & Los tres detectores heredan una base común (CalibratedGesturePlugin) que aplica la calibración y el clic; cada uno solo implementa su detección. Este avance porta el comportamiento del C\# tal cual, incluida la rotación fija de 180$^{\circ}$ de Hand Skin, que después se detectó como defecto (H-01). \\ \midrule
+Requisitos Funcionales & G1, G2, G3, U2 \\ \midrule
+Requisitos No Funcionales & RNF-01, RNF-04, RNF-06 \\ \bottomrule
+\end{tabularx}
+\fuente{Elaboración propia, 2026.}
+\end{table}

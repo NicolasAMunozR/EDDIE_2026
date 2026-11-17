@@ -1,0 +1,66 @@
+{
+  // ===== Compilación de la tesis (LaTeX Workshop + MiKTeX) =====
+  // La plantilla tesis-usach debe compilarse con XeLaTeX (ver README.md).
+  // No se usa latexmk porque en MiKTeX necesita Perl, que no está instalado.
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "--enable-installer",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"],
+      "env": {}
+    }
+  ],
+
+  "latex-workshop.latex.recipes": [
+    {
+      // Se ejecuta automáticamente cada vez que guardas (rápido: una pasada).
+      "name": "XeLaTeX (rápido, al guardar)",
+      "tools": ["xelatex"]
+    },
+    {
+      // Úsala la primera vez y cuando agregues citas o cambies bibliografia.bib.
+      "name": "XeLaTeX ➞ BibTeX ➞ XeLaTeX × 2 (completa)",
+      "tools": ["xelatex", "bibtex", "xelatex", "xelatex"]
+    }
+  ],
+
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.rootFile.doNotPrompt": true,
+  "latex-workshop.latex.rootFile.useSubFile": false,
+  "latex-workshop.latex.build.forceRecipeUsage": true,
+
+  // Recompilar al guardar (también al guardar un capítulo: compila tesis-usach.tex)
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoBuild.interval": 1000,
+
+  // Ver el PDF en una pestaña de VS Code; se recarga solo tras cada compilación
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+
+  // No borrar .aux/.toc/.bbl: las pasadas rápidas los necesitan para índices y referencias
+  "latex-workshop.latex.autoClean.run": "never",
+
+  // Mostrar solo errores y advertencias reales (ocultar los cientos de "Overfull/Underfull \hbox")
+  "latex-workshop.message.badbox.show": "none",
+  "latex-workshop.message.latexlog.exclude": [
+    "float specifier changed",
+    "Font shape .* undefined",
+    "Some font shapes were not available"
+  ],
+
+  "files.encoding": "utf8",
+  "files.autoSave": "afterDelay"
+}

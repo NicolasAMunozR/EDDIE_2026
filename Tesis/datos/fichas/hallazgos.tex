@@ -1,0 +1,14 @@
+% Ficha extraída de datos/tabla_prototipos.tex (Hallazgos (fase de reparación MECIVA PS))
+\begin{table}[H]
+\centering
+\caption{Hallazgos de la verificación.}
+\label{tab:hallazgos}
+\begin{tabularx}{\textwidth}{l X l X}
+\toprule
+ID & Descripción & Estado & Justificación o Solución \\ \midrule
+H-01 & Al calibrar con Hand Skin la vista de la cámara aparece rotada 180$^{\circ}$. HandSkinRecognition.cs rotaba siempre la imagen porque la cámara del laboratorio estaba montada invertida; el port conservó esa rotación fija, solo en ese plug-in (Color Pen y Mouse no rotan), así que la vista previa y las coordenadas de calibración quedaban al revés con cualquier otra cámara. & SF & La rotación pasa a ser una opción común de los tres plug-ins (rotate\_180, por defecto desactivada) que se aplica una sola vez al frame; vista previa, coordenadas y recorte comparten orientación. Casilla nueva <<Rotar la imagen 180$^{\circ}$>> en Gestos para el montaje invertido del laboratorio. \\ \midrule
+H-02 & ConsistencyPlugin guardaba cada cambio con saveIncr(). Con PyMuPDF 2.1, desde el segundo guardado incremental el PDF queda con la xref dañada; al reabrirlo PyMuPDF lo <<repara>> y se pierden los resaltados, comentarios y marcadores guardados antes. En pantalla no se notaba porque el documento en memoria seguía correcto. & SF & Cada guardado escribe una copia completa en un archivo temporal, reemplaza el original y vuelve a abrirlo (se mantiene el respaldo .bac). Si otro programa tiene el PDF bloqueado (Windows), se reintenta y luego se informa con un mensaje claro. \\ \midrule
+H-03 & Al pulsar los botones de carpeta o las casillas de Rastreo ocular aparecía <<'bool' object has no attribute 'mapToGlobal'>>. La ayuda contextual se conectaba con lambda w=widget, t=text a la señal clicked; en los botones, clicked(bool) entrega checked y Qt lo pasaba como primer argumento, reemplazando w por False. La acción del botón sí se ejecutaba, pero cada clic dejaba una excepción. & SF & La ayuda por clic queda solo para los íconos de información; los botones y casillas la muestran al pasar el mouse. La lambda ignora los argumentos de la señal (lambda *\_, w=widget, t=text). Se corrige desde P-05, primer avance con esos controles, hasta P-07. \\ \bottomrule
+\end{tabularx}
+\fuente{Elaboración propia, 2026.}
+\end{table}

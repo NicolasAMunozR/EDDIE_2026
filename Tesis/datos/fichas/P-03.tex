@@ -1,0 +1,17 @@
+% Ficha extraída de datos/tabla_prototipos.tex (P-03)
+\begin{table}[H]
+\centering
+\caption{Tercer prototipo - Reconocimiento de texto e interfaz de configuración.}
+\label{tab:prototipo-p03}
+\small
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+ID Prototipo & P-03 \\ \midrule
+Nombre & Reconocimiento de texto e interfaz de configuración \\ \midrule
+Objetivos & Integrar el reconocimiento del texto resaltado (IImageProcessor: segmentación del resaltado + Tesseract) sobre la cámara de texto declarada. \newline Construir la ventana de configuración a partir de los controles extraídos de los .Designer.cs, con un diseño propio en español (ui/theme.py, ui/modern\_forms.py) y las páginas Texto (OCR) y Documento PDF. \newline Ejecutar el ciclo del orquestador dentro de Qt (EddieRuntime) y persistir los ajustes. \newline Poder probar el OCR y ver el PDF cargado desde estas páginas, sin esperar la pantalla de proyección. \\ \midrule
+Descripción & Aparece la interfaz. Conserva todos los controles del original (mismo nombre, tipo, rangos y estado inicial), ordenados en tarjetas con layouts de Qt, con un menú lateral que muestra el estado de cada módulo y una pantalla de inicio <<Preparar sesión>>. Solo se construyen las páginas de los módulos ya integrados: las demás aparecen en el menú deshabilitadas con el avance en que se integran, y <<Iniciar proyección>> avisa que la proyección llega en P-06. Como en el C\# el texto reconocido solo se veía desde la proyección, se agregan el botón <<Reconocer texto>> con el texto reconocido y una vista previa del PDF con navegación de páginas. Los mensajes son avisos no modales. \\ \midrule
+Requisitos Funcionales & FD1, N7, U1, U3, RFS3, RFS5, RFS6, RFS7, RFS8 \\ \midrule
+Requisitos No Funcionales & RNF-01, RNF-06, RNF-07 \\ \bottomrule
+\end{tabularx}
+\fuente{Elaboración propia, 2026.}
+\end{table}

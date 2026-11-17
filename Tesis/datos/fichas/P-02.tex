@@ -1,0 +1,17 @@
+% Ficha extraída de datos/tabla_prototipos.tex (P-02)
+\begin{table}[H]
+\centering
+\caption{Segundo prototipo - Capa de abstracción de hardware y módulo de consistencia.}
+\label{tab:prototipo-p02}
+\small
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+ID Prototipo & P-02 \\ \midrule
+Nombre & Capa de abstracción de hardware y módulo de consistencia \\ \midrule
+Objetivos & Incorporar DeviceFactory para conmutar cada dispositivo entre real y simulado sin cambiar código. \newline Implementar la cámara real (OpenCV, hilo de captura) y la enumeración de cámaras de Windows. \newline Integrar primero el módulo sin dependencia de hardware: la consistencia papel$\leftrightarrow$PDF como plugin IConsistencyProvider (PyMuPDF). \newline Extender el núcleo con overrides de configuración, invocación bajo demanda, reinicio en caliente y traza de ejecución. \\ \midrule
+Descripción & El núcleo pasa a su versión definitiva y se agrega la capa HAL. La consistencia (resaltados, marcadores, comentarios y figuras, búsqueda de texto) se ejecuta a través del orquestador con OrchestratorCore.invoke(). Sigue sin interfaz: se demuestra con demos/demo\_consistencia.py, que sincroniza tres <<fotos>> sintéticas de la hoja con un PDF de prueba y guarda el PDF resultante y el render de cada página. \\ \midrule
+Requisitos Funcionales & N4, N5, N6, N8, C1, C2, C3, C7, C9, C10, C11 (parcial) \\ \midrule
+Requisitos No Funcionales & RNF-01, RNF-02, RNF-04, RNF-05 \\ \bottomrule
+\end{tabularx}
+\fuente{Elaboración propia, 2026.}
+\end{table}

@@ -1,0 +1,17 @@
+% Ficha extraída de datos/tabla_prototipos.tex (P-01)
+\begin{table}[H]
+\centering
+\caption{Primer prototipo - Núcleo orquestador y contratos de plugins.}
+\label{tab:prototipo-p01}
+\small
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+ID Prototipo & P-01 \\ \midrule
+Nombre & Núcleo orquestador y contratos de plugins \\ \midrule
+Objetivos & Definir PluginBase y los contratos de cada módulo (ICameraSensor, IImageProcessor, IGesturePlugin, IEyeTracker, IConsistencyProvider, IWebSearchProvider, ISpeechProvider). \newline Implementar el OrchestratorCore (inicializar $\rightarrow$ ejecutar $\rightarrow$ liberar) y el PluginLoader con un único mecanismo de carga. \newline Validar la inyección de dependencias sensor$\rightarrow$consumidor, el aislamiento de fallos y la latencia por ciclo. \\ \midrule
+Descripción & Primera versión del núcleo, sin interfaz. Se prueba con dispositivos simulados (MockCameraSensor, EyeTrackerMock) y con plugins de prueba: un consumidor de frames, un consumidor de resultados del ciclo, un plugin que falla cada 10 ciclos y una entrada con una clase inexistente (equivalente a la DLL faltante de los errores E38/E50). El OrchestratorCore de este avance es la versión temprana del repositorio (sin overrides, invoke ni reinicio en caliente). \\ \midrule
+Requisitos Funcionales & N1, N2, N3, RFCO12 \\ \midrule
+Requisitos No Funcionales & RNF-01, RNF-02, RNF-04, RNF-05 \\ \bottomrule
+\end{tabularx}
+\fuente{Elaboración propia, 2026.}
+\end{table}
